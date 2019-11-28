@@ -15,7 +15,6 @@ public class ResponseView implements Serializable {
     private int code = 0;
     private String message = "ok";
     private Object result;
-    private String uuid;
 
     public ResponseView() {
         this.code = 0;
@@ -27,19 +26,7 @@ public class ResponseView implements Serializable {
         this.message = msg;
     }
 
-    public ResponseView(int code, String msg, String uuid) {
-        this.code = code;
-        this.message = msg;
-        this.uuid = uuid;
-    }
 
-    public String getUuid() {
-        return this.uuid;
-    }
-
-    public void setUuid(String uuid) {
-        this.uuid = uuid;
-    }
 
     public int getCode() {
         return this.code;
