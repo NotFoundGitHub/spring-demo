@@ -1,12 +1,11 @@
 package com.example.demo.controller;
 
 
+import com.example.demo.service.ConsumeService;
 import com.example.demo.service.UserService;
+import com.example.demo.vo.ConsumeVo;
 import com.example.demo.vo.ResponseView;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
@@ -24,6 +23,8 @@ public class UserController {
     @Resource
     private UserService userService;
 
+    @Resource
+    private ConsumeService consumeService;
 
     @RequestMapping("/geek")
     public String home() {
@@ -48,6 +49,17 @@ public class UserController {
 
         return responseView;
     }
+    @ResponseBody
+    @RequestMapping(value = "/getStudentConsumer" ,method = RequestMethod.POST)
+    public ResponseView getStudentConsumer(@RequestBody ConsumeVo consumeVo){
+        ResponseView responseView = new ResponseView();
+
+//        Integer consume = consumeService.addMorningAndLunch(consumeVo);
+//        responseView.setResult(consume);
+        responseView.setResult(consumeVo);
+        return responseView;
+    }
+
 
 
     @PostMapping("/user/info")
